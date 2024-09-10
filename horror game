@@ -1,0 +1,32 @@
+
+class MyGame extends Sprite {
+
+    private var player:Sprite;
+    private var enemy:Sprite;
+
+    public function MyGame() {
+        // Create player and enemy sprites
+        player = new Sprite();
+        player.graphics.beginFill(0xFFFFFF);
+        player.graphics.drawCircle(0, 0, 20);
+        player.graphics.endFill();
+
+        enemy = new Sprite();
+        enemy.graphics.beginFill(0xFF0000);
+        enemy.graphics.drawCircle(0, 0, 20);
+        enemy.graphics.endFill();
+
+        // Add sprites to the stage
+        addChild(player);
+        addChild(enemy);
+
+        // Set initial positions
+        player.x = stage.stageWidth / 2;
+        player.y = stage.stageHeight / 2;
+
+        enemy.x = stage.stageWidth / 4;
+        enemy.y = stage.stageHeight / 4;
+
+        // Listen for keyboard events
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+    }
